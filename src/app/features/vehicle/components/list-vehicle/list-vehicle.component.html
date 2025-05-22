@@ -1,0 +1,27 @@
+<table class="table">
+    <caption class="table-caption">... Listado de vehiculos ...</caption>
+    <thead class="table-head">
+        <tr>
+            <th>Placa</th>
+            <th>Color</th>
+            <th>Marca</th>
+            <th>Tipo De Vehiculo</th>
+            <th>Propietario</th>
+            <th>Condutor</th>
+        </tr>
+    </thead>
+    <tbody class="table-body">
+        
+        @for ( vehicle of listVehicle; track vehicle) {
+            <tr>
+                <td>{{vehicle.license_plate}}</td>
+                <td>{{vehicle.color}}</td>
+                <td>{{vehicle.brand}}</td>
+                <td>{{vehicle.type}}</td>
+                <td>{{vehicle.owner_first_name}}</td>
+                <td>{{vehicle.driver_first_name}}</td>
+            </tr>
+        }
+   
+    </tbody>
+</table>

@@ -1,0 +1,6 @@
+:host {
+    $columns: 1fr 1fr auto 1fr 1fr;
+    display: grid;
+    grid-template-columns: $columns;
+
+}

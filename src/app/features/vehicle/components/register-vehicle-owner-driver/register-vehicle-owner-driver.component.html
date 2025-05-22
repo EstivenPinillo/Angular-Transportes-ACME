@@ -1,0 +1,188 @@
+<h2 class="form-title">Formulario Operacion ACME</h2>
+<form class="form" [formGroup]="formOrdenACME" (ngSubmit)="onRegisterVehicleOwnerDriver()">
+    <section class="form-section">
+        <div class="form-subtitle">
+            <h2>Propiertario Informacion</h2>
+        </div>
+        <input type="hidden" value="2" formControlName="profile_owner">
+
+        <div class="grid-2">
+            <div class="form-group">
+                <label>Primer nombre</label>
+                <input type="text" formControlName="first_name_owner" class="input-control" >
+                @if (formOrdenACME.controls.first_name_owner.errors && formOrdenACME.controls.first_name_owner.touched) {
+                    <label>Este campo es requerido</label>
+                }
+            </div>
+            <div class="form-group">
+                <label>Segundo nombre</label>
+                <input type="text" formControlName="second_name_owner" class="input-control">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>Apellidos</label>
+            <input type="text" formControlName="last_name_owner" class="input-control">
+            @if (formOrdenACME.controls.last_name_owner.errors && formOrdenACME.controls.last_name_owner.touched) {
+                <label>Este campo es requerido</label>
+            }
+        </div>
+        <div class="grid-2">
+            <div class="form-group">
+                <label>Seleccione tipo documento</label>
+                <select formControlName="type_document_owner" class="input-control">
+                    <option value="#" selected>Cedula de ciudadania</option>
+                    <option value="1">Tarjeta de identidad</option>
+                    <option value="3">Pasaporte extranjero</option>
+                </select>
+                @if (formOrdenACME.controls.type_document_owner.errors && formOrdenACME.controls.type_document_owner.touched) {
+                    <label>Este campo es requerido</label>
+                }
+            </div>
+            <div class="form-group">
+                <label>Numero documento</label>
+                <input type="text" formControlName="document_owner" class="input-control">
+                @if (formOrdenACME.controls.document_owner.errors && formOrdenACME.controls.document_owner.touched) {
+                    <label>Este campo es requerido</label>
+                }
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Direccion</label>
+            <input type="text" formControlName="address_owner" class="input-control">
+            @if (formOrdenACME.controls.address_owner.errors && formOrdenACME.controls.address_owner.touched) {
+                <label>Este campo es requerido</label>
+            }
+        </div>        
+        <div class="form-group">
+            <label>Numero de celular</label>
+            <input type="text" formControlName="phone_number_owner" class="input-control">
+            @if (formOrdenACME.controls.phone_number_owner.errors && formOrdenACME.controls.phone_number_owner.touched) {
+                <label>Este campo es requerido</label>
+            }
+        </div>
+
+        <div class="grid-2">
+            <div class="form-group">
+                <label>Seleccione pais</label>
+                <select formControlName="countrie_owner" (change)="onCityByCountriesOwner()" class="input-control">
+                    <option value="0">Paises</option>
+                    @for ( country of countries; track country ) {
+                        <option value="{{country.id}}">{{ country.name }}</option>
+                    }
+                </select>
+                @if (formOrdenACME.controls.countrie_owner.errors && formOrdenACME.controls.countrie_owner.touched) {
+                    <label>Este campo es requerido</label>
+                }
+            </div>
+            <div class="form-group">
+                <label>Seleccione ciudad</label>
+                <select name="" formControlName="city_woner" class="input-control">
+                    <option value="0">Ciudades</option>
+                    @for ( city of cityOwner; track city ) {
+                        <option value="{{city.id}}">{{ city.name }}</option>
+                    }
+                </select>
+                @if (formOrdenACME.controls.city_woner.errors && formOrdenACME.controls.city_woner.touched) {
+                    <label>Este campo es requerido</label>
+                }
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="form-subtitle">
+            <h2>Conductor Informacion</h2>
+        </div>
+        <input type="hidden" value="3" formControlName="profile_id" class="input-control">
+        <div class="grid-2">
+            <div class="form-group">
+                <label>Primer nombre conductor</label>
+                <input type="text" formControlName="first_name" class="input-control">
+                @if (formOrdenACME.controls.first_name.errors && formOrdenACME.controls.first_name.touched) {
+                    <label>Este campo es requerido</label>
+                }
+            </div>
+            <div class="form-group">
+                <label>Segundo nombre conductor</label>
+                <input type="text" formControlName="second_name" class="input-control">
+                @if (formOrdenACME.controls.second_name.errors && formOrdenACME.controls.second_name.touched) {
+                    <label>Este campo es requerido</label>
+                }
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Apellidos del conductor</label>
+            <input type="text" formControlName="last_name" class="input-control">
+            @if (formOrdenACME.controls.last_name.errors && formOrdenACME.controls.last_name.touched) {
+                <label>Este campo es requerido</label>
+            }
+        </div>
+        <div class="grid-2">
+            <div class="form-group">
+                <label>Seleccione tipo de documento</label>
+                <select name="" formControlName="type_document_id" class="input-control">
+                    <option value="3" selected>Cedula de ciudadania</option>
+                    <option value="4">Tarjeta de identidad</option>
+                    <option value="4">Pasaporte extranjero</option>
+                </select>
+                @if (formOrdenACME.controls.type_document_id.errors && formOrdenACME.controls.type_document_id.touched) {
+                    <label>Este campo es requerido</label>
+                }
+            </div>
+            <div class="form-group">
+                <label>Numero de documento</label>
+                <input type="text" formControlName="document" class="input-control">
+                @if (formOrdenACME.controls.document.errors && formOrdenACME.controls.document.touched) {
+                    <label>Este campo es requerido</label>
+                }
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Direccion</label>
+            <input type="text" formControlName="address" class="input-control">
+            @if (formOrdenACME.controls.address.errors && formOrdenACME.controls.address.touched) {
+                <label>Este campo es requerido</label>
+            }
+        </div>
+        <div class="form-group">
+            <label>Numero de celular</label>
+            <input type="text" formControlName="phone_number" class="input-control">
+            @if (formOrdenACME.controls.phone_number.errors && formOrdenACME.controls.phone_number.touched) {
+                <label>Este campo es requerido</label>
+            }
+        </div>
+        
+        <div class="grid-2">
+            <div class="form-group">
+                <label>Seleccione pais</label>
+                <select formControlName="countrie_id" (change)="onCityByCountriesDriver()" class="input-control">
+                    <option value="0" >Paises</option>
+                    @for ( country of countries; track country ) {
+                        <option value="{{country.id}}">{{ country.name }}</option>
+                    }
+                </select>
+                @if (formOrdenACME.controls.countrie_id.errors && formOrdenACME.controls.countrie_id.touched) {
+                    <label>Este campo es requerido</label>
+                }
+            </div>
+            <div class="form-group">
+                <label>Seleccione ciudad</label>
+                <select formControlName="city_id" class="input-control" class="input-control">
+                    <option value="0" >Ciudades</option>
+                    @for ( city of cityDriver; track city ) {
+                        <option value="{{city.id}}">{{ city.name }}</option>
+                    }
+                </select>
+                @if (formOrdenACME.controls.city_id.errors && formOrdenACME.controls.city_id.touched) {
+                    <label>Este campo es requerido</label>
+                }
+            </div>
+        </div>
+    </section>
+
+    <vehicle-acme [formGroup]="formOrdenACME">
+    </vehicle-acme>
+    <div class="form-group">
+        <button class="btn" type="submit" class="input-control">Registrar</button>
+    </div>
+</form>

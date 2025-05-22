@@ -1,0 +1,33 @@
+<table class="table">
+    <caption class="table-caption">... Listado de usuarios ...</caption>
+    <thead class="table-head">
+        <tr>
+            <th>Perfil</th>
+            <th>Tipo documento</th>
+            <th># Documento</th>
+            <th>1. Nombre</th>
+            <th>2. Nombre</th>
+            <th>Apellidos</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Ciudad</th>
+        </tr>
+    </thead>
+    <tbody class="table-body">
+        
+        @for (ownerDriver of profileOwnerDriver; track ownerDriver.document ) {
+            <tr>
+                <td>{{ownerDriver.profile_name}}</td>
+                <td>{{ownerDriver.type_document}}</td>
+                <td>{{ownerDriver.document}}</td>
+                <td>{{ownerDriver.first_name}}</td>
+                <td>{{ownerDriver.second_name}}</td>
+                <td>{{ownerDriver.last_name}}</td>
+                <td>{{ownerDriver.address}}</td>
+                <td>{{ownerDriver.phone_number}}</td>
+                <td>{{ownerDriver.city}}</td>
+            </tr>
+        }
+        
+    </tbody>
+</table>
